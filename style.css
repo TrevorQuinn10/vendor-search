@@ -1,27 +1,65 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  padding: 40px;
-  max-width: 600px;
-  margin: auto;
-}
-h1 {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f0f0;
   text-align: center;
+  padding: 40px;
 }
-input {
-  width: 100%;
+
+h1 {
+  margin-bottom: 20px;
+}
+
+input, button {
+  font-size: 16px;
   padding: 10px;
-  font-size: 16px;
-  margin-bottom: 10px;
+  margin: 10px;
+  width: 80%;
+  max-width: 400px;
 }
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+
+.avatarContainer {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
 }
-#result {
-  margin-top: 20px;
+
+#talkingHead {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+#speechBubble {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -20px;
+  width: 280px;
   background: #fff;
+  border: 2px solid #333;
+  border-radius: 10px;
   padding: 15px;
-  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
+  animation: talk 0.4s ease-out 1;
+  z-index: 1;
+}
+
+#speechBubble::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 10px solid transparent;
+  border-bottom-color: #fff;
+}
+
+@keyframes talk {
+  0% { transform: translateX(-50%) scale(0.8); opacity: 0; }
+  50% { transform: translateX(-50%) scale(1.05); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+.hidden {
+  display: none;
 }
