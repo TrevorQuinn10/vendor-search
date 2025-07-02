@@ -2,6 +2,7 @@ async function lookupVendor() {
   const input = document.getElementById('vendorInput').value.toLowerCase();
   const resultDiv = document.getElementById('result');
   const bubble = document.getElementById('speechBubble');
+  const image = document.getElementById('talkingHead');
 
   if (!input) {
     resultDiv.textContent = "Please enter a vendor name.";
@@ -10,7 +11,7 @@ async function lookupVendor() {
   }
 
   try {
-    const res = await fetch('vendors.json');
+    const res = await fetch('vendors.json?cache=' + new Date().getTime());
     const vendors = await res.json();
 
     const matches = vendors.filter(v =>
@@ -29,9 +30,12 @@ async function lookupVendor() {
     }
 
     bubble.classList.remove('hidden');
-    bubble.style.animation = 'none';
-    void bubble.offsetWidth; // Trigger reflow to restart animation
-    bubble.style.animation = '';
+
+    // Trigger animation
+    image.classList.remove('talking');
+    void image.offsetWidth;
+    image.classList.add('talking');
+
   } catch (error) {
     resultDiv.textContent = "Error loading vendor data.";
     bubble.classList.remove('hidden');
