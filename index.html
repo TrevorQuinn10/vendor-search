@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Vendor Lookup</title>
+  <title>Ask Dave</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🔍 Vendor Lookup Tool</h1>
+  <h1 id="logo">🕵️ Ask Dave</h1>
+  <p class="subtitle">Your charming vendor concierge</p>
 
   <div class="avatarContainer">
-    <img src="image.jpg" id="talkingHead" alt="Speaking Avatar" />
+    <img src="image.jpg" id="talkingHead" alt="Ask Dave" />
     <div id="speechBubble" class="hidden">
       <div id="result"></div>
     </div>
   </div>
 
-  <input type="text" id="vendorInput" placeholder="Type vendor name..." />
-  <button onclick="lookupVendor()">Search</button>
+  <input type="text" id="vendorInput" placeholder="Type vendor name..." list="vendorList" />
+  <datalist id="vendorList"></datalist>
 
   <script src="script.js"></script>
 </body>
