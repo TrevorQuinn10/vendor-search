@@ -7,10 +7,17 @@
 </head>
 <body>
   <h1>🔍 Vendor Lookup Tool</h1>
+
+  <div class="avatarContainer">
+    <img src="image.jpg" id="talkingHead" alt="Speaking Avatar" />
+    <div id="speechBubble" class="hidden">
+      <div id="result"></div>
+    </div>
+  </div>
+
   <input type="text" id="vendorInput" placeholder="Type vendor name..." />
   <button onclick="lookupVendor()">Search</button>
-  <div id="result"></div>
 
   <script src="script.js"></script>
-</body> 
-</html> 
+</body>
+</html>
